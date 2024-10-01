@@ -4,7 +4,7 @@ import 'package:navigation_history_observer/navigation_history_observer.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
-import 'enums/app_pages_route.dart';
+import 'enums/app_page_route_enum.dart';
 
 abstract class AppPageRoute {
   String get route;
@@ -31,27 +31,31 @@ class AppNav {
     _onPop = onPop;
   }
 
-  AppNav.withRootRoute(BuildContext context, String route, {ValueChanged<dynamic>? onPop}) {
+  AppNav.withRootRoute(BuildContext context, String route,
+      {ValueChanged<dynamic>? onPop}) {
     _context = context;
     _route = route;
     _onPop = onPop;
   }
 
-  AppNav.withoutRootRoute(BuildContext context, dynamic page, {ValueChanged<dynamic>? onPop}) {
+  AppNav.withoutRootRoute(BuildContext context, dynamic page,
+      {ValueChanged<dynamic>? onPop}) {
     _context = context;
     _page = page;
     _onPop = onPop;
     _rootNavigator = false;
   }
 
-  AppNav.withoutRoot(BuildContext context, dynamic page, {ValueChanged<dynamic>? onPop}) {
+  AppNav.withoutRoot(BuildContext context, dynamic page,
+      {ValueChanged<dynamic>? onPop}) {
     _context = context;
     _page = page;
     _onPop = onPop;
     _rootNavigator = false;
   }
 
-  AppNav.pop(BuildContext context, {dynamic result, void Function(AppNav appNav)? computation}) {
+  AppNav.pop(BuildContext context,
+      {dynamic result, void Function(AppNav appNav)? computation}) {
     _context = context;
     Navigator.of(context).pop(result);
     if (computation != null) {
@@ -103,7 +107,8 @@ class AppNav {
 
   Future<void> pushPage() async {
     assert(_page != null);
-    final response = await Navigator.of(_context, rootNavigator: _rootNavigator).push(
+    final response =
+        await Navigator.of(_context, rootNavigator: _rootNavigator).push(
       MaterialPageRoute<dynamic>(
         settings: RouteSettings(name: _page!.route, arguments: _page!.args),
         builder: (BuildContext context) {
@@ -118,7 +123,8 @@ class AppNav {
 
   Future<void> pushNamed() async {
     assert(_route != null && _route != '');
-    final response = await Navigator.of(_context, rootNavigator: _rootNavigator).pushNamed(_route!);
+    final response = await Navigator.of(_context, rootNavigator: _rootNavigator)
+        .pushNamed(_route!);
     if (_onPop != null) {
       _onPop!(response);
     }
@@ -127,7 +133,8 @@ class AppNav {
   Future<void> pushReplacementNamed() async {
     assert(_route != null && _route != '');
     dynamic res;
-    res = await Navigator.of(_context, rootNavigator: _rootNavigator).pushReplacementNamed(_route!);
+    res = await Navigator.of(_context, rootNavigator: _rootNavigator)
+        .pushReplacementNamed(_route!);
     if (_onPop != null) {
       _onPop!(res);
     }
@@ -135,7 +142,8 @@ class AppNav {
 
   Future<void> pushReplacementPage() async {
     assert(_page != null);
-    final response = await Navigator.of(_context, rootNavigator: _rootNavigator).pushReplacement(
+    final response = await Navigator.of(_context, rootNavigator: _rootNavigator)
+        .pushReplacement(
       MaterialPageRoute<dynamic>(
         settings: RouteSettings(name: _page!.route, arguments: _page!.args),
         builder: (BuildContext context) => _page!,
@@ -148,7 +156,8 @@ class AppNav {
 
   Future<void> pushAndRemoveUntilPage() async {
     assert(_page != null);
-    final response = await Navigator.of(_context, rootNavigator: _rootNavigator).pushAndRemoveUntil(
+    final response = await Navigator.of(_context, rootNavigator: _rootNavigator)
+        .pushAndRemoveUntil(
       MaterialPageRoute<dynamic>(
         settings: RouteSettings(name: _page!.route, arguments: _page!.args),
         builder: (BuildContext context) => _page!,
@@ -162,7 +171,8 @@ class AppNav {
 
   Future<void> pushCupertinoPage() async {
     assert(_page != null);
-    final response = await Navigator.of(_context, rootNavigator: _rootNavigator).push(
+    final response =
+        await Navigator.of(_context, rootNavigator: _rootNavigator).push(
       CupertinoPageRoute<dynamic>(
         settings: RouteSettings(name: _page!.route, arguments: _page!.args),
         builder: (BuildContext context) => _page!,
@@ -175,7 +185,8 @@ class AppNav {
 
   Future<void> pushAndReplaceCupertinoPage() {
     assert(_page != null && _onPop == null);
-    return Navigator.of(_context, rootNavigator: _rootNavigator).pushReplacement(
+    return Navigator.of(_context, rootNavigator: _rootNavigator)
+        .pushReplacement(
       CupertinoPageRoute<void>(
         builder: (BuildContext context) => _page!,
       ),
@@ -184,7 +195,8 @@ class AppNav {
 
   Future<void> pushAndRemoveUntilCupertinoPage() {
     assert(_page != null && _onPop == null);
-    return Navigator.of(_context, rootNavigator: _rootNavigator).pushAndRemoveUntil(
+    return Navigator.of(_context, rootNavigator: _rootNavigator)
+        .pushAndRemoveUntil(
       CupertinoPageRoute<void>(
         builder: (BuildContext context) => _page!,
       ),

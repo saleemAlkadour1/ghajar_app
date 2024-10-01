@@ -9,39 +9,42 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({
     super.key,
     this.onTap,
-    required this.title,
+    this.title,
     this.widget,
   });
   final void Function()? onTap;
-  final String title;
+  final String? title;
   final Widget? widget;
 
   @override
   Widget build(BuildContext context) {
-    return AppBar(
-      elevation: 0,
-      automaticallyImplyLeading: false,
-      leading: GestureDetector(
-        onTap: onTap,
-        child: Container(
-          width: AppSpacing.value(52).w,
-          height: AppSpacing.value(52).h,
-          decoration: BoxDecoration(
-            color: AppColors.white,
-            borderRadius: BorderRadius.circular(AppRadius.regular.v),
-          ),
-          child: Center(
-            child: SvgPicture.asset('assets/images/app_icons/arrow_back.svg'),
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: AppSpacing.value(23).w),
+      child: AppBar(
+        elevation: 0,
+        automaticallyImplyLeading: false,
+        leading: GestureDetector(
+          onTap: onTap,
+          child: Container(
+            width: AppSpacing.value(52).w,
+            height: AppSpacing.value(52).h,
+            decoration: BoxDecoration(
+              color: AppColors.white,
+              borderRadius: BorderRadius.circular(AppRadius.regular.v),
+            ),
+            child: Center(
+              child: SvgPicture.asset('assets/images/app_icons/arrow_back.svg'),
+            ),
           ),
         ),
+        actions: [
+          widget ??
+              Text(
+                title!,
+                style: MyText.appStyle.xl.wBold.reColorPrimary.style,
+              )
+        ],
       ),
-      actions: [
-        widget ??
-            Text(
-              title,
-              style: MyText.appStyle.xl.wBold.reColorPrimary.style,
-            )
-      ],
     );
   }
 

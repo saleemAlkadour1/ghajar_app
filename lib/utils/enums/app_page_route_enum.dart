@@ -5,7 +5,7 @@ enum AppPageRouteEnum {
   catalogScreen('catalog-screen'),
   favouriteScreen('favourite-screen'),
   cartScreen('cart-screen'),
-  productDetailsScreen('product-details-screen');
+  detailsScreen('details-screen');
 
   final String routeName;
 

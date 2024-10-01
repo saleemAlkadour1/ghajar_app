@@ -8,7 +8,7 @@ import 'package:ghajar_app/ui/widgets/cart_screen_widgets/custom_list_view_in_ca
 import 'package:ghajar_app/ui/widgets/cart_screen_widgets/payment_summary_card.dart';
 import 'package:ghajar_app/ui/widgets/custom_app_bar.dart';
 import 'package:ghajar_app/ui/widgets/custom_button.dart';
-import 'package:ghajar_app/utils/enums/app_pages_route.dart';
+import 'package:ghajar_app/utils/enums/app_page_route_enum.dart';
 import 'package:ghajar_app/utils/navigation.dart';
 
 class CartScreen extends ConsumerWidget implements AppPageRoute {
@@ -16,25 +16,26 @@ class CartScreen extends ConsumerWidget implements AppPageRoute {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Padding(
+    return Scaffold(
+      appBar: CustomAppBar(title: MyStrings.shoppingCart),
+      body: Padding(
         padding: EdgeInsets.symmetric(horizontal: AppSpacing.value(23).w),
-        child: Scaffold(
-          appBar: CustomAppBar(title: MyStrings.shoppingCart),
-          body: Column(
-            children: [
-              AppSpacing.value(25).inColumn,
-              SizedBox(
-                height: AppSpacing.value(300).h,
-                child: CustomListViewInCartScreen(),
-              ),
-              AppSpacing.value(31).inColumn,
-              PaymentSummaryCard(),
-              Spacer(),
-              CustomButton(text: 'أكمل الطلب'),
-              AppSpacing.value(10).inColumn
-            ],
-          ),
-        ));
+        child: Column(
+          children: [
+            AppSpacing.value(25).inColumn,
+            SizedBox(
+              height: AppSpacing.value(300).h,
+              child: CustomListViewInCartScreen(),
+            ),
+            AppSpacing.value(31).inColumn,
+            PaymentSummaryCard(),
+            Spacer(),
+            CustomButton(text: 'أكمل الطلب'),
+            AppSpacing.value(10).inColumn
+          ],
+        ),
+      ),
+    );
   }
 
   @override

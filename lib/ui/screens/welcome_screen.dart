@@ -8,7 +8,7 @@ import 'package:ghajar_app/ui/widgets/custom_button.dart';
 import 'package:ghajar_app/ui/widgets/welcome_screen_widgets/custom_smooth_page_indicator.dart';
 import 'package:ghajar_app/ui/widgets/welcome_screen_widgets/images_page_view.dart';
 import 'package:ghajar_app/ui/widgets/welcome_screen_widgets/text_page_view.dart';
-import 'package:ghajar_app/utils/enums/app_pages_route.dart';
+import 'package:ghajar_app/utils/enums/app_page_route_enum.dart';
 import 'package:ghajar_app/utils/navigation.dart';
 
 class WelcomeScreen extends StatelessWidget implements AppPageRoute {

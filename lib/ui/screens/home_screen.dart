@@ -14,7 +14,7 @@ import 'package:ghajar_app/ui/widgets/home_screen_widgets/custom_app_bar_in_home
 import 'package:ghajar_app/ui/widgets/home_screen_widgets/custom_text_field.dart';
 import 'package:ghajar_app/ui/widgets/home_screen_widgets/offer_slide.dart';
 import 'package:ghajar_app/ui/widgets/home_screen_widgets/products_list_view.dart';
-import 'package:ghajar_app/utils/enums/app_pages_route.dart';
+import 'package:ghajar_app/utils/enums/app_page_route_enum.dart';
 import 'package:ghajar_app/utils/navigation.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

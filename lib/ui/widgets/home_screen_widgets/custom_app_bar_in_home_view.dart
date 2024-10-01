@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:ghajar_app/app/app_colors.dart';
+import 'package:ghajar_app/app/app_radius.dart';
 import 'package:ghajar_app/app/app_spacing.dart';
 import 'package:ghajar_app/app/app_text_styles.dart';
 import 'package:ghajar_app/app/my_strings.dart';
@@ -17,10 +18,19 @@ class CustomAppBarInHomeView extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          SvgPicture.asset(
-            'assets/images/app_icons/cart.svg',
-            width: 32.w,
-            height: 36.h,
+          Container(
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+                color: AppColors.white,
+                borderRadius: BorderRadius.circular(AppRadius.xs.v)),
+            padding: EdgeInsets.symmetric(
+                vertical: AppSpacing.value(2).h,
+                horizontal: AppSpacing.value(10).w),
+            child: Image.asset(
+              'assets/images/app_icons/logo.png',
+              width: 32.w,
+              height: 36.h,
+            ),
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.end,

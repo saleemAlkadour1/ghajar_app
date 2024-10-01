@@ -5,7 +5,7 @@ import 'package:ghajar_app/app/app_spacing.dart';
 import 'package:ghajar_app/app/my_strings.dart';
 import 'package:ghajar_app/ui/widgets/catalog_screen_widgets/catalog_item.dart';
 import 'package:ghajar_app/ui/widgets/custom_app_bar.dart';
-import 'package:ghajar_app/utils/enums/app_pages_route.dart';
+import 'package:ghajar_app/utils/enums/app_page_route_enum.dart';
 import 'package:ghajar_app/utils/navigation.dart';
 
 class CatalogScreen extends StatelessWidget implements AppPageRoute {
@@ -20,24 +20,23 @@ class CatalogScreen extends StatelessWidget implements AppPageRoute {
       'assets/images/categories/image4.png',
       'assets/images/categories/image5.png',
     ];
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: AppSpacing.value(23).w),
-      child: Scaffold(
-          appBar: CustomAppBar(title: MyStrings.catalog),
-          body: Padding(
-            padding: EdgeInsets.symmetric(vertical: AppSpacing.value(25).h),
-            child: ListView.builder(
-              itemCount: pathImages.length,
-              itemBuilder: (context, index) {
-                return CatalogItem(
-                  sort: index + 1,
-                  title: MyStrings.categoryTitles[index],
-                  pathImage: pathImages[index],
-                );
-              },
-            ),
-          )),
-    );
+    return Scaffold(
+        appBar: CustomAppBar(title: MyStrings.catalog),
+        body: Padding(
+          padding: EdgeInsets.symmetric(
+              vertical: AppSpacing.value(25).h,
+              horizontal: AppSpacing.value(23).w),
+          child: ListView.builder(
+            itemCount: pathImages.length,
+            itemBuilder: (context, index) {
+              return CatalogItem(
+                sort: index + 1,
+                title: MyStrings.categoryTitles[index],
+                pathImage: pathImages[index],
+              );
+            },
+          ),
+        ));
   }
 
   @override
