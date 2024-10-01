@@ -1,7 +1,11 @@
 enum AppPageRouteEnum {
   mainScreen('main-screen'),
   welcomeScreen('welcome-screen'),
-  homeScreen('home-screen');
+  homeScreen('home-screen'),
+  catalogScreen('catalog-screen'),
+  favouriteScreen('favourite-screen'),
+  cartScreen('cart-screen'),
+  productDetailsScreen('product-details-screen');
 
   final String routeName;
 

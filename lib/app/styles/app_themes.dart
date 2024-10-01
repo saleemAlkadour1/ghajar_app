@@ -4,7 +4,7 @@ import 'package:ghajar_app/app/app_colors.dart';
 import 'package:ghajar_app/app/app_radius.dart';
 import 'package:ghajar_app/app/app_text_styles.dart';
 
-import 'input_decoration_themes.dart';
+//import 'input_decoration_themes.dart';
 
 class AppThemes {
   static const double _buttonHeight = 56;
@@ -74,7 +74,7 @@ class AppThemes {
           textStyle: MyText.btn.style,
         ),
       ),
-      inputDecorationTheme: InputDecorationThemes.main,
+      //inputDecorationTheme: InputDecorationThemes.main,
       pageTransitionsTheme: const PageTransitionsTheme(builders: {
         TargetPlatform.android: CupertinoPageTransitionsBuilder(),
         TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
