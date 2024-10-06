@@ -24,7 +24,7 @@ class MyStrings {
   static String get main => 'الرئيسية';
   static String get welcome => '!!أهلا بكم';
   static String get ghajarCompany => 'شركة الغجر التجارية';
-  static String get searchForSomething => 'البحث عن شيء';
+  static String get searchForSomething => '   البحث عن شيء';
   static String get underfloorHeating => 'تدفئة أرضية';
   static String get more => 'المزيد';
   static String get centralHeating => 'تدفئة مركزية';

@@ -18,6 +18,13 @@ final listCartItemProvider = StateProvider<List<CartItemModel>>((ref) => [
           quantity: 1,
           imagePath: 'assets/images/products/product3.png'),
     ]);
+final listPathImage = StateProvider<List<String>>((ref) => [
+      'assets/images/categories/image1.png',
+      'assets/images/categories/image2.png',
+      'assets/images/categories/image3.png',
+      'assets/images/categories/image4.png',
+      'assets/images/categories/image5.png',
+    ]);
 final orderTotalProvider = StateProvider<double>((ref) {
   final listCartItem = ref.watch(listCartItemProvider);
   double orderTotal = 0;
