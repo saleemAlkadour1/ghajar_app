@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ghajar_app/models/cart_item_model.dart';
 
@@ -33,3 +34,6 @@ final orderTotalProvider = StateProvider<double>((ref) {
   }
   return orderTotal;
 });
+final pageControllerProvider =
+    StateProvider<PageController>((ref) => PageController());
+final selectedIndexProvider = StateProvider<int>((ref) => 3);

@@ -1,20 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:ghajar_app/app/app_spacing.dart';
 import 'package:ghajar_app/app/app_text_styles.dart';
 
-class TextsPageViewItem extends StatelessWidget {
-  const TextsPageViewItem({
+class PageViewItem extends StatelessWidget {
+  const PageViewItem({
     super.key,
     required this.title,
     required this.details,
+    required this.pathImage,
   });
   final String title;
   final String details;
+  final String pathImage;
 
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
+        Padding(
+          padding: REdgeInsets.symmetric(horizontal: 21),
+          child: SvgPicture.asset(
+            pathImage,
+            width: AppSpacing.value(321).w,
+            height: AppSpacing.value(261).h,
+          ),
+        ),
+        AppSpacing.value(66).inColumn,
         Text(
           title,
           style: MyText.appStyle.xl.wBold.reColorText.style,

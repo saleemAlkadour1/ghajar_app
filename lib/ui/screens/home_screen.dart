@@ -1,10 +1,12 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ghajar_app/app/app_colors.dart';
 import 'package:ghajar_app/app/app_spacing.dart';
 import 'package:ghajar_app/app/app_text_styles.dart';
-import 'package:ghajar_app/app/my_strings.dart';
+import 'package:ghajar_app/app/translations.dart';
+import 'package:ghajar_app/providers/variables_provider.dart';
 import 'package:ghajar_app/ui/bottom_navigation_bar_item.dart';
 import 'package:ghajar_app/ui/screens/cart_screen.dart';
 import 'package:ghajar_app/ui/screens/catalog_screen.dart';
@@ -18,33 +20,21 @@ import 'package:ghajar_app/utils/enums/app_page_route_enum.dart';
 import 'package:ghajar_app/utils/navigation.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class HomeScreen extends StatefulWidget implements AppPageRoute {
+class HomeScreen extends ConsumerWidget implements AppPageRoute {
   const HomeScreen({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
-
-  @override
-  Map<String, String?> get args => {};
-
-  @override
-  String get route => AppPageRouteEnum.homeScreen.routeName;
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  PageController pageController = PageController();
-  int selectedIndex = 3;
-  List<Widget> screens = [
-    FavouriteScreen(),
-    CatalogScreen(),
-    CartScreen(),
-    HomeScreen(),
-  ];
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final PageController pageController = PageController();
+    final List<Widget> screens = [
+      FavouriteScreen(),
+      CatalogScreen(),
+      CartScreen(),
+      HomeScreen(),
+    ];
     return Scaffold(
         resizeToAvoidBottomInset: false,
-        body: selectedIndex == 3
+        body: ref.watch(selectedIndexProvider) == 3
             ? SafeArea(
                 child: Column(
                   children: [
@@ -64,12 +54,12 @@ class _HomeScreenState extends State<HomeScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            MyStrings.more,
+                            Translations.more,
                             style: MyText
                                 .appStyle.small.wRegular.reColorPrimary.style,
                           ),
                           Text(
-                            MyStrings.centralHeating,
+                            Translations.centralHeating,
                             style: MyText.appStyle.l.wMedium.reColorText.style,
                           )
                         ],
@@ -83,7 +73,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
               )
-            : screens[selectedIndex],
+            : screens[ref.watch(selectedIndexProvider)],
         bottomNavigationBar: Theme(
           data: Theme.of(context).copyWith(
               splashColor: Colors.transparent,
@@ -91,39 +81,43 @@ class _HomeScreenState extends State<HomeScreen> {
           child: BottomNavigationBar(
             backgroundColor: AppColors.white,
             type: BottomNavigationBarType.fixed,
-            currentIndex: selectedIndex,
+            currentIndex: ref.watch(selectedIndexProvider),
             onTap: (index) {
-              setState(() {
-                selectedIndex = index;
-              });
+              ref.watch(selectedIndexProvider.notifier).state = index;
             },
             items: [
               customBottomNavigationBarItem(
                 index: 0,
-                selectedIndex: selectedIndex,
-                title: MyStrings.favorite,
+                selectedIndex: ref.watch(selectedIndexProvider),
+                title: Translations.favorite,
                 pathImage: 'assets/images/app_icons/heart.svg',
               ),
               customBottomNavigationBarItem(
                 index: 1,
-                selectedIndex: selectedIndex,
-                title: MyStrings.catalog,
+                selectedIndex: ref.watch(selectedIndexProvider),
+                title: Translations.catalog,
                 pathImage: 'assets/images/app_icons/sort.svg',
               ),
               customBottomNavigationBarItem(
                 index: 2,
-                selectedIndex: selectedIndex,
-                title: MyStrings.cart,
+                selectedIndex: ref.watch(selectedIndexProvider),
+                title: Translations.cart,
                 pathImage: 'assets/images/app_icons/cart.svg',
               ),
               customBottomNavigationBarItem(
                 index: 3,
-                selectedIndex: selectedIndex,
-                title: MyStrings.main,
+                selectedIndex: ref.watch(selectedIndexProvider),
+                title: Translations.main,
                 pathImage: 'assets/images/app_icons/home.svg',
               ),
             ],
           ),
         ));
   }
+
+  @override
+  Map<String, String?> get args => {};
+
+  @override
+  String get route => AppPageRouteEnum.homeScreen.routeName;
 }

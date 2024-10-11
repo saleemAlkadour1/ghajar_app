@@ -4,7 +4,7 @@ import 'package:ghajar_app/app/app_colors.dart';
 import 'package:ghajar_app/app/app_radius.dart';
 import 'package:ghajar_app/app/app_spacing.dart';
 import 'package:ghajar_app/app/app_text_styles.dart';
-import 'package:ghajar_app/app/my_strings.dart';
+import 'package:ghajar_app/app/translations.dart';
 
 class CustomAppBarInHomeView extends StatelessWidget {
   const CustomAppBarInHomeView({
@@ -36,12 +36,12 @@ class CustomAppBarInHomeView extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Text(
-                MyStrings.welcome,
+                Translations.welcome,
                 style: MyText.appStyle.xl.wBold.reColorPrimary.style,
               ),
               AppSpacing.value(6).inColumn,
               Text(
-                MyStrings.ghajarCompany,
+                Translations.ghajarCompany,
                 style: MyText.appStyle.l.wMedium.reColorXLightText.style,
               ),
             ],

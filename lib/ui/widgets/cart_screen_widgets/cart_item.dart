@@ -60,11 +60,12 @@ class CartItem extends ConsumerWidget {
           AppSpacing.value(10).inRow,
           ClipRRect(
             borderRadius: BorderRadius.circular(AppRadius.regular.v),
-            child: Image.asset(
-              fit: BoxFit.cover,
-              cartItemModel.imagePath!,
-              width: AppSpacing.value(84).w,
-              height: AppSpacing.value(73).h,
+            child: AspectRatio(
+              aspectRatio: 84 / 73,
+              child: Image.asset(
+                fit: BoxFit.cover,
+                cartItemModel.imagePath!,
+              ),
             ),
           ),
         ],

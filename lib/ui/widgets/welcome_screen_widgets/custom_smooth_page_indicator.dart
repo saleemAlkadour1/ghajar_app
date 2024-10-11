@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ghajar_app/app/app_colors.dart';
 import 'package:ghajar_app/app/app_spacing.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class CustomSmoothPageIndicator extends StatelessWidget {
+class CustomSmoothPageIndicator extends ConsumerWidget {
   const CustomSmoothPageIndicator({
     super.key,
     required this.pageController,
@@ -12,7 +13,7 @@ class CustomSmoothPageIndicator extends StatelessWidget {
   final PageController pageController;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return SmoothPageIndicator(
       controller: pageController,
       count: 3,
