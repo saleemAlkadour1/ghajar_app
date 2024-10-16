@@ -10,11 +10,11 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     super.key,
     this.onTap,
     this.title,
-    this.widget,
+    this.actions,
   });
   final void Function()? onTap;
   final String? title;
-  final Widget? widget;
+  final List<Widget>? actions;
 
   @override
   Widget build(BuildContext context) {
@@ -40,13 +40,14 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             ),
           ),
         ),
-        actions: [
-          widget ??
-              Text(
-                title!,
-                style: MyText.appStyle.xl.wBold.reColorPrimary.style,
-              )
-        ],
+        title: Align(
+          alignment: Alignment.centerRight,
+          child: Text(
+            title ?? '',
+            style: MyText.appStyle.xl.wBold.reColorPrimary.style,
+          ),
+        ),
+        actions: actions,
       ),
     );
   }

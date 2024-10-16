@@ -81,6 +81,8 @@ class HomeScreen extends ConsumerWidget implements AppPageRoute {
           child: BottomNavigationBar(
             backgroundColor: AppColors.white,
             type: BottomNavigationBarType.fixed,
+            showSelectedLabels: false,
+            showUnselectedLabels: false,
             currentIndex: ref.watch(selectedIndexProvider),
             onTap: (index) {
               ref.watch(selectedIndexProvider.notifier).state = index;

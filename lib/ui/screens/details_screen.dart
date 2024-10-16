@@ -23,17 +23,19 @@ class DetailsScreen extends StatelessWidget implements AppPageRoute {
         onTap: () {
           AppNav.pop(context);
         },
-        widget: Container(
-          width: AppSpacing.value(52).w,
-          height: AppSpacing.value(52).h,
-          decoration: BoxDecoration(
-            color: AppColors.white,
-            borderRadius: BorderRadius.circular(AppRadius.regular.v),
+        actions: [
+          Container(
+            width: AppSpacing.value(52).w,
+            height: AppSpacing.value(52).h,
+            decoration: BoxDecoration(
+              color: AppColors.white,
+              borderRadius: BorderRadius.circular(AppRadius.regular.v),
+            ),
+            child: Center(
+              child: SvgPicture.asset('assets/images/app_icons/share.svg'),
+            ),
           ),
-          child: Center(
-            child: SvgPicture.asset('assets/images/app_icons/share.svg'),
-          ),
-        ),
+        ],
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: AppSpacing.value(23).w),
