@@ -5,7 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ghajar_app/app/app_colors.dart';
 import 'package:ghajar_app/app/app_spacing.dart';
 import 'package:ghajar_app/app/app_text_styles.dart';
-import 'package:ghajar_app/app/translations.dart';
+import 'package:ghajar_app/app/my_strings.dart';
 import 'package:ghajar_app/providers/variables_provider.dart';
 import 'package:ghajar_app/ui/bottom_navigation_bar_item.dart';
 import 'package:ghajar_app/ui/screens/cart_screen.dart';
@@ -54,12 +54,12 @@ class HomeScreen extends ConsumerWidget implements AppPageRoute {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            Translations.more,
+                            MyStrings.more,
                             style: MyText
                                 .appStyle.small.wRegular.reColorPrimary.style,
                           ),
                           Text(
-                            Translations.centralHeating,
+                            MyStrings.centralHeating,
                             style: MyText.appStyle.l.wMedium.reColorText.style,
                           )
                         ],
@@ -89,25 +89,25 @@ class HomeScreen extends ConsumerWidget implements AppPageRoute {
               customBottomNavigationBarItem(
                 index: 0,
                 selectedIndex: ref.watch(selectedIndexProvider),
-                title: Translations.favorite,
+                title: MyStrings.favorite,
                 pathImage: 'assets/images/app_icons/heart.svg',
               ),
               customBottomNavigationBarItem(
                 index: 1,
                 selectedIndex: ref.watch(selectedIndexProvider),
-                title: Translations.catalog,
+                title: MyStrings.catalog,
                 pathImage: 'assets/images/app_icons/sort.svg',
               ),
               customBottomNavigationBarItem(
                 index: 2,
                 selectedIndex: ref.watch(selectedIndexProvider),
-                title: Translations.cart,
+                title: MyStrings.cart,
                 pathImage: 'assets/images/app_icons/cart.svg',
               ),
               customBottomNavigationBarItem(
                 index: 3,
                 selectedIndex: ref.watch(selectedIndexProvider),
-                title: Translations.main,
+                title: MyStrings.main,
                 pathImage: 'assets/images/app_icons/home.svg',
               ),
             ],

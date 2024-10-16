@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:ghajar_app/app/app_config.dart';
 import 'package:ghajar_app/app/app_spacing.dart';
-import 'package:ghajar_app/app/translations.dart';
+import 'package:ghajar_app/app/my_strings.dart';
 import 'package:ghajar_app/ui/screens/home_screen.dart';
 import 'package:ghajar_app/ui/widgets/custom_button.dart';
 import 'package:ghajar_app/ui/widgets/welcome_screen_widgets/custom_page_view.dart';
@@ -52,12 +52,12 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   child: CustomPageView(
                     pageController: pageController,
                     pathImages: pathImages,
-                    titles: Translations.titlesPageView,
-                    details: Translations.detailsPageView,
+                    titles: MyStrings.titlesPageView,
+                    details: MyStrings.detailsPageView,
                   ),
                 ),
                 CustomButton(
-                  text: Translations.btnToStartNow,
+                  text: MyStrings.btnToStartNow,
                   onTap: () {
                     AppNav.withoutRoot(context, HomeScreen())
                         .pushReplacementPage();

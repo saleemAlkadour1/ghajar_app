@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ghajar_app/app/app_spacing.dart';
-import 'package:ghajar_app/app/translations.dart';
+import 'package:ghajar_app/app/my_strings.dart';
 import 'package:ghajar_app/ui/widgets/cart_screen_widgets/custom_list_view_in_cart_screen.dart';
 import 'package:ghajar_app/ui/widgets/cart_screen_widgets/payment_summary_card.dart';
 import 'package:ghajar_app/ui/widgets/custom_app_bar.dart';
@@ -17,7 +17,7 @@ class CartScreen extends ConsumerWidget implements AppPageRoute {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      appBar: CustomAppBar(title: Translations.shoppingCart),
+      appBar: CustomAppBar(title: MyStrings.shoppingCart),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: AppSpacing.value(23).w),
         child: Column(

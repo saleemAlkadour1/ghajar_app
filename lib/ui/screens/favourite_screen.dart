@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:ghajar_app/app/app_spacing.dart';
-import 'package:ghajar_app/app/translations.dart';
+import 'package:ghajar_app/app/my_strings.dart';
 import 'package:ghajar_app/ui/widgets/custom_app_bar.dart';
 import 'package:ghajar_app/ui/widgets/home_screen_widgets/product_item.dart';
 import 'package:ghajar_app/utils/enums/app_page_route_enum.dart';
@@ -15,7 +15,7 @@ class FavouriteScreen extends StatelessWidget implements AppPageRoute {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
-        title: Translations.favorite,
+        title: MyStrings.favorite,
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(

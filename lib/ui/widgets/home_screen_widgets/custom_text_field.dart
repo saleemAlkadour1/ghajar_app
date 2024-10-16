@@ -5,7 +5,7 @@ import 'package:ghajar_app/app/app_colors.dart';
 import 'package:ghajar_app/app/app_radius.dart';
 import 'package:ghajar_app/app/app_spacing.dart';
 import 'package:ghajar_app/app/app_text_styles.dart';
-import 'package:ghajar_app/app/translations.dart';
+import 'package:ghajar_app/app/my_strings.dart';
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField({
@@ -20,7 +20,7 @@ class CustomTextField extends StatelessWidget {
         textDirection: TextDirection.rtl,
         child: TextField(
           decoration: InputDecoration(
-            hintText: Translations.searchForSomething,
+            hintText: MyStrings.searchForSomething,
             hintStyle: MyText.appStyle.small.wRegular.reColorXXLightText.style,
             prefixIcon: SvgPicture.asset(
               'assets/images/app_icons/search.svg',

@@ -5,7 +5,7 @@ import 'package:ghajar_app/app/app_colors.dart';
 import 'package:ghajar_app/app/app_radius.dart';
 import 'package:ghajar_app/app/app_spacing.dart';
 import 'package:ghajar_app/app/app_text_styles.dart';
-import 'package:ghajar_app/app/translations.dart';
+import 'package:ghajar_app/app/my_strings.dart';
 import 'package:ghajar_app/ui/screens/details_screen.dart';
 import 'package:ghajar_app/utils/navigation.dart';
 
@@ -76,7 +76,7 @@ class ProductItem extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.only(right: 11.w),
                   child: Text(
-                    Translations.heating,
+                    MyStrings.heating,
                     style: MyText.appStyle.ml.wRegular.reColorText.style,
                   ),
                 )

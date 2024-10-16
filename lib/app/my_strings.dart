@@ -1,4 +1,4 @@
-class Translations {
+class MyStrings {
   static List<String> get titlesPageView => [
         'مرحبًا بك في تطبيق جغر',
         'تسوق كل ما تحتاجه بسهولة',

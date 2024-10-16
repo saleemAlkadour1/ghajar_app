@@ -1,4 +1,3 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -9,14 +8,11 @@ import 'package:ghajar_app/ui/screens/welcome_screen.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-  await EasyLocalization.ensureInitialized();
-  runApp(EasyLocalization(
-    supportedLocales: const [Locale('ar')],
-    path: 'assets/translation',
-    child: const ProviderScope(
+  runApp(
+    const ProviderScope(
       child: GhajarApp(),
     ),
-  ));
+  );
 }
 
 class GhajarApp extends StatelessWidget {
@@ -30,9 +26,9 @@ class GhajarApp extends StatelessWidget {
       splitScreenMode: true,
       builder: (context, child) {
         return const MaterialApp(
-          locale: Locale('ar'),
           debugShowCheckedModeBanner: false,
-          home: WelcomeScreen(),
+          home: Directionality(
+              textDirection: TextDirection.rtl, child: WelcomeScreen()),
         );
       },
     );
