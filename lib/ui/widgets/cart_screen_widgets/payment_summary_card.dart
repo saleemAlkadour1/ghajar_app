@@ -1,8 +1,7 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ghajar_app/app/app_spacing.dart';
+import 'package:ghajar_app/app/my_strings.dart';
 import 'package:ghajar_app/providers/variables_provider.dart';
 import 'package:ghajar_app/ui/widgets/cart_screen_widgets/details_item.dart';
 
@@ -15,11 +14,11 @@ class PaymentSummaryCard extends ConsumerWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        DetailsItem(title: ':السعر الإجمالي', value: orderTotal.toString()),
+        DetailsItem(title: MyStrings.totalPrice, value: orderTotal.toString()),
         AppSpacing.value(6).inColumn,
-        DetailsItem(title: ':الخصم', value: '0'),
+        DetailsItem(title: MyStrings.discount, value: '0'),
         AppSpacing.value(6).inColumn,
-        DetailsItem(title: ':رسوم التوصيل المقدرة', value: '0'),
+        DetailsItem(title: MyStrings.estimatedDeliveryCharges, value: '0'),
       ],
     );
   }

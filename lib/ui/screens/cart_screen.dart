@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors, prefer_interpolation_to_compose_strings
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ghajar_app/app/app_spacing.dart';
@@ -16,8 +14,14 @@ class CartScreen extends ConsumerWidget implements AppPageRoute {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final double heightScreen = MediaQuery.sizeOf(context).height;
+    final double widthScreen = MediaQuery.sizeOf(context).width;
     return Scaffold(
-      appBar: CustomAppBar(title: MyStrings.shoppingCart),
+      appBar: CustomAppBar(
+        title: MyStrings.shoppingCart,
+        heightScreen: heightScreen,
+        widthScreen: widthScreen,
+      ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: AppSpacing.value(23).w),
         child: Column(
@@ -25,12 +29,16 @@ class CartScreen extends ConsumerWidget implements AppPageRoute {
             AppSpacing.value(25).inColumn,
             SizedBox(
               height: AppSpacing.value(300).h,
-              child: CustomListViewInCartScreen(),
+              child: const CustomListViewInCartScreen(),
             ),
             AppSpacing.value(31).inColumn,
-            PaymentSummaryCard(),
-            Spacer(),
-            CustomButton(text: 'أكمل الطلب'),
+            const PaymentSummaryCard(),
+            const Spacer(),
+            CustomButton(
+              text: MyStrings.completeTheRequest,
+              heightScreen: heightScreen,
+              widthScreen: widthScreen,
+            ),
             AppSpacing.value(10).inColumn
           ],
         ),

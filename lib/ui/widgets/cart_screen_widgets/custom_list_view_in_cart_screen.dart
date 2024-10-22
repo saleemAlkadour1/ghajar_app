@@ -11,7 +11,8 @@ class CustomListViewInCartScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    List<CartItemModel> listCartItemModel = ref.watch(listCartItemProvider);
+    final List<CartItemModel> listCartItemModel =
+        ref.watch(listCartItemProvider);
 
     return ListView.builder(
       itemBuilder: (context, index) {

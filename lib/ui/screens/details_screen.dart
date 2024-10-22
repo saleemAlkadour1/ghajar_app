@@ -2,10 +2,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:ghajar_app/app/app_colors.dart';
 import 'package:ghajar_app/app/app_radius.dart';
 import 'package:ghajar_app/app/app_spacing.dart';
 import 'package:ghajar_app/app/app_text_styles.dart';
+import 'package:ghajar_app/assets.dart';
 import 'package:ghajar_app/ui/widgets/custom_app_bar.dart';
 import 'package:ghajar_app/ui/widgets/home_screen_widgets/product_item.dart';
 import 'package:ghajar_app/ui/widgets/price_card.dart';
@@ -18,8 +20,12 @@ class DetailsScreen extends StatelessWidget implements AppPageRoute {
 
   @override
   Widget build(BuildContext context) {
+    final double heightScreen = MediaQuery.sizeOf(context).height;
+    final double widthScreen = MediaQuery.sizeOf(context).width;
     return Scaffold(
       appBar: CustomAppBar(
+        heightScreen: heightScreen,
+        widthScreen: widthScreen,
         onTap: () {
           AppNav.pop(context);
         },
@@ -32,7 +38,7 @@ class DetailsScreen extends StatelessWidget implements AppPageRoute {
               borderRadius: BorderRadius.circular(AppRadius.regular.v),
             ),
             child: Center(
-              child: SvgPicture.asset('assets/images/app_icons/share.svg'),
+              child: SvgPicture.asset(Assets.images.app_icons.share_svg),
             ),
           ),
         ],
@@ -42,12 +48,14 @@ class DetailsScreen extends StatelessWidget implements AppPageRoute {
         child: ListView(
           children: [
             AppSpacing.value(25).inColumn,
-            ClipRRect(
-              borderRadius: BorderRadius.circular(AppRadius.xm.v),
-              child: Image.asset(
-                'assets/images/products/product4.png',
-                width: AppSpacing.value(328).w,
-                height: AppSpacing.value(218).h,
+            AspectRatio(
+              aspectRatio: 328 / 218,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(AppRadius.xm.v),
+                child: Image.asset(
+                  'assets/images/products/product4.png',
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
             AppSpacing.value(33).inColumn,
@@ -65,7 +73,7 @@ class DetailsScreen extends StatelessWidget implements AppPageRoute {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                starsByCount(5),
+                starsByCount(3.5),
                 PriceCard(
                   isDiscount: true,
                   price: 65.00,
@@ -104,6 +112,12 @@ class DetailsScreen extends StatelessWidget implements AppPageRoute {
                   'آراء العملاء',
                   style: MyText.appStyle.l.wRegular.reColorText.style,
                 ),
+                children: [
+                  Text(
+                    'القميص هو استثمار مربح في خزانة الملابس. والسبب هو:- القمصان تتناسب تمامًا مع أي جزء سفلي- القمصان المصنوعة من الأقمشة الطبيعية مناسبة لأي وقت من السنة.',
+                    style: MyText.appStyle.m.wRegular.reColorXLightText.style,
+                  )
+                ],
               ),
             ),
             AppSpacing.value(25).inColumn,
@@ -120,10 +134,15 @@ class DetailsScreen extends StatelessWidget implements AppPageRoute {
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 mainAxisSpacing: 15,
+                crossAxisSpacing: 15,
                 childAspectRatio: 2.465 / 3,
               ),
               itemBuilder: (context, index) {
-                return ProductItem();
+                return ProductItem(
+                  isDetailsScreen: true,
+                  heightScreen: heightScreen,
+                  widthScreen: widthScreen,
+                );
               },
             )
           ],
@@ -139,12 +158,14 @@ class DetailsScreen extends StatelessWidget implements AppPageRoute {
   String get route => AppPageRouteEnum.detailsScreen.routeName;
 }
 
-Widget starsByCount(int count) {
+Widget starsByCount(double count) {
   List<Widget> stars = [];
-  int countStars = 1;
+  double countStars = 1.0;
+  int intPartCount = count.toInt();
+  double doublePartCount = count - intPartCount;
 
   if (count >= 1 && count <= 5) {
-    countStars = count;
+    countStars = intPartCount.toDouble();
   } else if (count > 5) {
     countStars = 5;
   } else if (count < 1) {
@@ -153,14 +174,55 @@ Widget starsByCount(int count) {
   for (int i = 1; i <= countStars; i++) {
     stars.add(
       Padding(
-        padding: EdgeInsets.only(right: AppSpacing.value(4).w),
-        child: SvgPicture.asset('assets/images/app_icons/star.svg'),
+        padding: REdgeInsets.only(right: 5),
+        child: Icon(
+          FontAwesomeIcons.solidStar,
+          color: AppColors.rating,
+        ),
       ),
     );
   }
-  stars.add(Text(
-    countStars.toDouble().toString(),
-    style: TextStyle(color: AppColors.rating, fontSize: 16.sp),
+  if (count >= 1 && count <= 5 && doublePartCount == 0.5) {
+    countStars += 0.5;
+    stars.add(
+      Padding(
+        padding: REdgeInsets.only(right: 5),
+        child: Icon(
+          FontAwesomeIcons.starHalfStroke,
+          color: AppColors.rating,
+        ),
+      ),
+    );
+  }
+
+  for (int i = 1; i <= (5 - countStars).ceil() - 1; i++) {
+    stars.add(
+      Padding(
+        padding: REdgeInsets.only(right: 5),
+        child: Icon(
+          FontAwesomeIcons.star,
+          color: AppColors.rating,
+        ),
+      ),
+    );
+  }
+  if (count < 1 || (count >= 1 && count <= 5 && doublePartCount != 0.5)) {
+    stars.add(
+      Padding(
+        padding: REdgeInsets.only(right: 5),
+        child: Icon(
+          FontAwesomeIcons.star,
+          color: AppColors.rating,
+        ),
+      ),
+    );
+  }
+  stars.add(Padding(
+    padding: REdgeInsets.only(left: 8),
+    child: Text(
+      countStars.toDouble().toString(),
+      style: TextStyle(color: AppColors.rating, fontSize: 16.sp),
+    ),
   ));
   return Row(
     children: stars,

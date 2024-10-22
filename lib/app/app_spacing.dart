@@ -45,4 +45,16 @@ class AppSpacing {
   SizedBox xInRow(double x) {
     return SizedBox(height: (_dimension * x).w);
   }
+
+  static SizedBox customHeight(double height) {
+    return SizedBox(
+      height: height,
+    );
+  }
+
+  static SizedBox customWidth(double width) {
+    return SizedBox(
+      height: width,
+    );
+  }
 }

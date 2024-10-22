@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ghajar_app/app/app_spacing.dart';
+import 'package:ghajar_app/assets.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OfferSlide extends StatelessWidget {
   const OfferSlide({
     super.key,
     required this.pageController,
+    required this.heightScreen,
+    required this.widthScreen,
   });
 
   final PageController pageController;
+  final double heightScreen;
+  final double widthScreen;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +22,7 @@ class OfferSlide extends StatelessWidget {
       textDirection: TextDirection.rtl,
       child: SizedBox(
           width: double.infinity,
-          height: AppSpacing.value(124).h,
+          height: heightScreen * 0.16,
           child: Stack(
             children: [
               PageView.builder(
@@ -25,9 +30,10 @@ class OfferSlide extends StatelessWidget {
                 itemCount: 3,
                 itemBuilder: (context, index) {
                   return Image.asset(
-                    'assets/images/offer.png',
+                    Assets.images.offer_png,
                     width: AppSpacing.value(329).w,
                     height: AppSpacing.value(124).h,
+                    fit: BoxFit.fill,
                   );
                 },
               ),

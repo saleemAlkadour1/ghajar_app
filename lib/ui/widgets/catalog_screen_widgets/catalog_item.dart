@@ -11,18 +11,26 @@ class CatalogItem extends StatelessWidget {
     required this.sort,
     required this.title,
     required this.pathImage,
+    required this.heightScreen,
+    required this.widthScreen,
   });
   final int sort;
   final String title;
   final String pathImage;
+  final double heightScreen;
+  final double widthScreen;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: AppSpacing.value(11).h),
+      margin: EdgeInsets.only(
+        bottom: AppSpacing.value(11).h,
+      ),
       padding: EdgeInsets.symmetric(
-          vertical: AppSpacing.value(12).h, horizontal: AppSpacing.value(12).w),
-      height: AppSpacing.value(100).h,
+        vertical: AppSpacing.value(12).h,
+        horizontal: AppSpacing.value(12).w,
+      ),
+      height: heightScreen * 0.15,
       decoration: BoxDecoration(
         color: AppColors.white,
         borderRadius: BorderRadius.circular(AppRadius.regular.v),

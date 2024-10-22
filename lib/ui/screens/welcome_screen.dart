@@ -1,9 +1,7 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
 import 'package:flutter/material.dart';
-import 'package:ghajar_app/app/app_config.dart';
 import 'package:ghajar_app/app/app_spacing.dart';
 import 'package:ghajar_app/app/my_strings.dart';
+import 'package:ghajar_app/assets.dart';
 import 'package:ghajar_app/ui/screens/home_screen.dart';
 import 'package:ghajar_app/ui/widgets/custom_button.dart';
 import 'package:ghajar_app/ui/widgets/welcome_screen_widgets/custom_page_view.dart';
@@ -25,7 +23,7 @@ class WelcomeScreen extends StatefulWidget implements AppPageRoute {
 }
 
 class _WelcomeScreenState extends State<WelcomeScreen> {
-  late PageController pageController;
+  late final PageController pageController;
 
   @override
   void initState() {
@@ -37,43 +35,51 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   Widget build(
     BuildContext context,
   ) {
-    List<String> pathImages = [
-      'assets/images/page_view_images/page_view_image_1.svg',
-      'assets/images/page_view_images/page_view_image_2.svg',
-      'assets/images/page_view_images/page_view_image_2.svg',
+    final double heightScreen = MediaQuery.sizeOf(context).height;
+    final double widthScreen = MediaQuery.sizeOf(context).width;
+    final List<String> pathImages = [
+      Assets.images.page_view_images.page_view_image_1_svg,
+      Assets.images.page_view_images.page_view_image_2_svg,
+      Assets.images.page_view_images.page_view_image_2_svg,
     ];
     return Scaffold(
       body: SafeArea(
-        child: Stack(
-          children: [
-            Column(
-              children: [
-                Expanded(
-                  child: CustomPageView(
-                    pageController: pageController,
-                    pathImages: pathImages,
-                    titles: MyStrings.titlesPageView,
-                    details: MyStrings.detailsPageView,
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: AppSpacing.value(23).w),
+          child: Stack(
+            children: [
+              Column(
+                children: [
+                  Expanded(
+                    child: CustomPageView(
+                      heightScreen: heightScreen,
+                      widthScreen: widthScreen,
+                      pageController: pageController,
+                      pathImages: pathImages,
+                      titles: MyStrings.titlesPageView,
+                      details: MyStrings.detailsPageView,
+                    ),
                   ),
-                ),
-                CustomButton(
-                  text: MyStrings.btnToStartNow,
-                  onTap: () {
-                    AppNav.withoutRoot(context, HomeScreen())
-                        .pushReplacementPage();
-                  },
-                ),
-                AppSpacing.value(10).inColumn
-              ],
-            ),
-            Positioned(
-                top: AppConfig.designSize.height / 2,
-                bottom: AppConfig.designSize.height / 2.8,
-                left: AppConfig.designSize.width / 2,
-                right: AppConfig.designSize.width / 2,
+                  CustomButton(
+                    heightScreen: heightScreen,
+                    widthScreen: widthScreen,
+                    text: MyStrings.btnToStartNow,
+                    onTap: () {
+                      AppNav.withoutRoot(context, const HomeScreen())
+                          .pushReplacementPage();
+                    },
+                  ),
+                  AppSpacing.customHeight(heightScreen * 0.02)
+                ],
+              ),
+              Positioned(
+                top: heightScreen / 1.97,
+                left: widthScreen / 2.7,
                 child:
-                    CustomSmoothPageIndicator(pageController: pageController))
-          ],
+                    CustomSmoothPageIndicator(pageController: pageController),
+              )
+            ],
+          ),
         ),
       ),
     );

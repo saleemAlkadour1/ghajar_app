@@ -10,10 +10,14 @@ class PageViewItem extends StatelessWidget {
     required this.title,
     required this.details,
     required this.pathImage,
+    required this.heightScreen,
+    required this.widthScreen,
   });
   final String title;
   final String details;
   final String pathImage;
+  final double heightScreen;
+  final double widthScreen;
 
   @override
   Widget build(BuildContext context) {
@@ -24,16 +28,16 @@ class PageViewItem extends StatelessWidget {
           padding: REdgeInsets.symmetric(horizontal: 21),
           child: SvgPicture.asset(
             pathImage,
-            width: AppSpacing.value(321).w,
-            height: AppSpacing.value(261).h,
+            width: widthScreen,
+            height: heightScreen * 0.3,
           ),
         ),
-        AppSpacing.value(66).inColumn,
+        AppSpacing.customHeight(heightScreen * 0.1),
         Text(
           title,
           style: MyText.appStyle.xl.wBold.reColorText.style,
         ),
-        AppSpacing.value(18).inColumn,
+        AppSpacing.customHeight(heightScreen * 0.02),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: AppSpacing.value(7.0).w),
           child: Text(

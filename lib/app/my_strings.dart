@@ -29,5 +29,11 @@ class MyStrings {
   static String get more => 'المزيد';
   static String get centralHeating => 'تدفئة مركزية';
   static String get heating => 'تدفئة';
-  static String get welcome1 => '';
+  static String get completeTheRequest => 'أكمل الطلب';
+  static String get solarEnergy1 => 'طاقة شمسية 1';
+  static String get solarEnergy2 => 'طاقة شمسية 2';
+  static String get solarEnergy3 => 'طاقة شمسية 3';
+  static String get totalPrice => ':السعر الإجمالي';
+  static String get discount => ':الخصم';
+  static String get estimatedDeliveryCharges => ':رسوم التوصيل المقدرة';
 }

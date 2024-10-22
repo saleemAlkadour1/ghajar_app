@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:ghajar_app/app/app_spacing.dart';
 import 'package:ghajar_app/app/my_strings.dart';
@@ -13,24 +11,31 @@ class FavouriteScreen extends StatelessWidget implements AppPageRoute {
 
   @override
   Widget build(BuildContext context) {
+    final double heightScreen = MediaQuery.sizeOf(context).height;
+    final double widthScreen = MediaQuery.sizeOf(context).width;
     return Scaffold(
       appBar: CustomAppBar(
         title: MyStrings.favorite,
+        heightScreen: heightScreen,
+        widthScreen: widthScreen,
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(
-            vertical: AppSpacing.value(25).h,
-            horizontal: AppSpacing.value(23).w),
+          vertical: heightScreen * 0.02,
+          horizontal: AppSpacing.value(23).w,
+        ),
         child: GridView.builder(
           itemCount: 20,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
-            mainAxisSpacing: 15,
+            mainAxisSpacing: 5,
             childAspectRatio: 2.465 / 3,
           ),
           itemBuilder: (context, index) {
             return ProductItem(
               isFavourite: true,
+              heightScreen: heightScreen,
+              widthScreen: widthScreen,
             );
           },
         ),

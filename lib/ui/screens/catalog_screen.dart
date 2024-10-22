@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ghajar_app/app/app_spacing.dart';
@@ -15,17 +13,25 @@ class CatalogScreen extends ConsumerWidget implements AppPageRoute {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    List<String> pathImages = ref.watch(listPathImage);
+    final List<String> pathImages = ref.watch(listPathImage);
+    final double heightScreen = MediaQuery.sizeOf(context).height;
+    final double widthScreen = MediaQuery.sizeOf(context).width;
     return Scaffold(
-        appBar: CustomAppBar(title: MyStrings.catalog),
+        appBar: CustomAppBar(
+          title: MyStrings.catalog,
+          heightScreen: heightScreen,
+          widthScreen: widthScreen,
+        ),
         body: Padding(
           padding: EdgeInsets.symmetric(
-              vertical: AppSpacing.value(25).h,
+              vertical: heightScreen * 0.03,
               horizontal: AppSpacing.value(23).w),
           child: ListView.builder(
             itemCount: pathImages.length,
             itemBuilder: (context, index) {
               return CatalogItem(
+                heightScreen: heightScreen,
+                widthScreen: widthScreen,
                 sort: index + 1,
                 title: MyStrings.categoryTitles[index],
                 pathImage: pathImages[index],
