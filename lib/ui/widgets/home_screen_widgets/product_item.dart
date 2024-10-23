@@ -48,7 +48,7 @@ class _ProductItemState extends State<ProductItem> {
                 color: AppColors.white,
                 borderRadius: BorderRadius.circular(AppRadius.lg.v)),
             width: width(154),
-            height: height(220),
+            height: height(219.5),
             child: Column(
               children: [
                 Padding(

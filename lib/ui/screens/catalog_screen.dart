@@ -19,8 +19,6 @@ class CatalogScreen extends ConsumerWidget implements AppPageRoute {
     return Scaffold(
         appBar: CustomAppBar(
           title: MyStrings.catalog,
-          heightScreen: heightScreen,
-          widthScreen: widthScreen,
         ),
         body: Padding(
           padding: EdgeInsets.symmetric(

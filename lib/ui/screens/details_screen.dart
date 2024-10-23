@@ -20,12 +20,8 @@ class DetailsScreen extends StatelessWidget implements AppPageRoute {
 
   @override
   Widget build(BuildContext context) {
-    final double heightScreen = MediaQuery.sizeOf(context).height;
-    final double widthScreen = MediaQuery.sizeOf(context).width;
     return Scaffold(
       appBar: CustomAppBar(
-        heightScreen: heightScreen,
-        widthScreen: widthScreen,
         onTap: () {
           AppNav.pop(context);
         },

@@ -14,13 +14,9 @@ class CartScreen extends ConsumerWidget implements AppPageRoute {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final double heightScreen = MediaQuery.sizeOf(context).height;
-    final double widthScreen = MediaQuery.sizeOf(context).width;
     return Scaffold(
       appBar: CustomAppBar(
         title: MyStrings.shoppingCart,
-        heightScreen: heightScreen,
-        widthScreen: widthScreen,
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: AppSpacing.value(23).w),
