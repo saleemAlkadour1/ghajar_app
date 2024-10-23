@@ -2,19 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:ghajar_app/app/app_colors.dart';
 import 'package:ghajar_app/app/app_radius.dart';
 import 'package:ghajar_app/app/app_text_styles.dart';
+import 'package:ghajar_app/utils/calculate_dimensions.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({
     super.key,
     required this.text,
     this.onTap,
-    required this.heightScreen,
-    required this.widthScreen,
   });
   final String text;
   final void Function()? onTap;
-  final double heightScreen;
-  final double widthScreen;
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -24,7 +22,7 @@ class CustomButton extends StatelessWidget {
             color: AppColors.primary,
             borderRadius: BorderRadius.circular(AppRadius.regular.v)),
         width: widthScreen,
-        height: heightScreen * 0.07,
+        height: height(50),
         child: Center(
             child: Text(
           text,

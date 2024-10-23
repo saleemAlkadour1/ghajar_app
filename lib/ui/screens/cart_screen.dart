@@ -36,8 +36,6 @@ class CartScreen extends ConsumerWidget implements AppPageRoute {
             const Spacer(),
             CustomButton(
               text: MyStrings.completeTheRequest,
-              heightScreen: heightScreen,
-              widthScreen: widthScreen,
             ),
             AppSpacing.value(10).inColumn
           ],

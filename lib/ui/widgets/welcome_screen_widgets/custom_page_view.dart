@@ -5,8 +5,6 @@ import 'package:ghajar_app/ui/widgets/welcome_screen_widgets/page_view_item.dart
 class CustomPageView extends ConsumerWidget {
   const CustomPageView({
     super.key,
-    required this.heightScreen,
-    required this.widthScreen,
     required this.pathImages,
     required this.titles,
     required this.details,
@@ -17,8 +15,6 @@ class CustomPageView extends ConsumerWidget {
   final List<String> titles;
   final List<String> details;
   final List<String> pathImages;
-  final double heightScreen;
-  final double widthScreen;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -26,8 +22,6 @@ class CustomPageView extends ConsumerWidget {
       controller: pageController,
       itemBuilder: (context, index) {
         return PageViewItem(
-          heightScreen: heightScreen,
-          widthScreen: widthScreen,
           pathImage: pathImages[index],
           title: titles[index],
           details: details[index],
