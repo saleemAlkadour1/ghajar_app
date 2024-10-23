@@ -22,7 +22,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: width(23)),
       child: SizedBox(
-        height: height(80),
+        height: height(90),
         child: AppBar(
           leadingWidth: width(52),
           scrolledUnderElevation: 0,
