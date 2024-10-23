@@ -34,8 +34,6 @@ class FavouriteScreen extends StatelessWidget implements AppPageRoute {
           itemBuilder: (context, index) {
             return ProductItem(
               isFavourite: true,
-              heightScreen: heightScreen,
-              widthScreen: widthScreen,
             );
           },
         ),

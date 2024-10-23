@@ -7,6 +7,7 @@ import 'package:ghajar_app/app/app_text_styles.dart';
 import 'package:ghajar_app/app/my_strings.dart';
 import 'package:ghajar_app/assets.dart';
 import 'package:ghajar_app/ui/screens/details_screen.dart';
+import 'package:ghajar_app/utils/calculate_dimensions.dart';
 import 'package:ghajar_app/utils/navigation.dart';
 
 class ProductItem extends StatefulWidget {
@@ -14,13 +15,9 @@ class ProductItem extends StatefulWidget {
     super.key,
     this.isFavourite = false,
     this.isDetailsScreen = false,
-    required this.heightScreen,
-    required this.widthScreen,
   });
   final bool? isFavourite;
   final bool? isDetailsScreen;
-  final double heightScreen;
-  final double widthScreen;
 
   @override
   State<ProductItem> createState() => _ProductItemState();
@@ -50,18 +47,26 @@ class _ProductItemState extends State<ProductItem> {
             decoration: BoxDecoration(
                 color: AppColors.white,
                 borderRadius: BorderRadius.circular(AppRadius.lg.v)),
-            width: widget.widthScreen * 0.4,
-            height: widget.heightScreen * 0.24,
+            width: width(154),
+            height: height(220),
             child: Column(
               children: [
                 Padding(
-                  padding: EdgeInsets.all(widget.heightScreen * 0.01),
+                  padding: EdgeInsets.only(
+                    top: height(9),
+                    left: width(6),
+                    right: width(6),
+                  ),
                   child: Center(
                     child: Image.asset(
                       Assets.images.imageitem_png,
-                      fit: BoxFit.cover,
+                      width: width(142),
+                      height: height(133),
                     ),
                   ),
+                ),
+                SizedBox(
+                  height: height(24),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -74,25 +79,28 @@ class _ProductItemState extends State<ProductItem> {
                           bottomRight: Radius.circular(AppRadius.m.v),
                         ),
                       ),
-                      padding: EdgeInsets.all(widget.heightScreen * 0.004),
+                      padding: EdgeInsets.all(
+                        emp(6),
+                      ),
                       child: Center(
                         child: Container(
+                          width: width(44),
+                          height: height(41),
                           decoration: BoxDecoration(
                             color: AppColors.primary,
-                            borderRadius:
-                                BorderRadius.circular(AppRadius.regular.v),
+                            borderRadius: BorderRadius.circular(AppRadius.m.v),
                           ),
-                          padding: EdgeInsets.all(widget.widthScreen * 0.01),
+                          padding: EdgeInsets.all(emp(10)),
                           child: SvgPicture.asset(
                             Assets.images.app_icons.buy_cart_svg,
-                            width: widget.widthScreen * 0.055,
-                            height: widget.widthScreen * 0.055,
+                            width: width(24),
+                            height: height(24),
                           ),
                         ),
                       ),
                     ),
                     Padding(
-                      padding: REdgeInsets.only(right: 11),
+                      padding: REdgeInsets.only(right: width(11)),
                       child: Text(
                         MyStrings.heating,
                         style: MyText.appStyle.ml.wRegular.reColorText.style,
@@ -105,8 +113,8 @@ class _ProductItemState extends State<ProductItem> {
           ),
         ),
         Positioned(
-            left: widget.widthScreen * 0.30,
-            top: widget.heightScreen * 0.02,
+            left: width(116),
+            top: height(16),
             child: GestureDetector(
               onTap: () {
                 setState(() {
@@ -116,7 +124,7 @@ class _ProductItemState extends State<ProductItem> {
               child: Icon(
                 isTap == false ? Icons.favorite_outline : Icons.favorite,
                 color: AppColors.primary,
-                size: 25.sp,
+                size: emp(24),
               ),
             ))
       ],

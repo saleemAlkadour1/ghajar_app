@@ -140,8 +140,6 @@ class DetailsScreen extends StatelessWidget implements AppPageRoute {
               itemBuilder: (context, index) {
                 return ProductItem(
                   isDetailsScreen: true,
-                  heightScreen: heightScreen,
-                  widthScreen: widthScreen,
                 );
               },
             )

@@ -71,8 +71,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               Positioned(
                 top: height(420),
                 left: width(140),
-                child:
-                    CustomSmoothPageIndicator(pageController: pageController),
+                child: CustomSmoothPageIndicator(
+                  pageController: pageController,
+                ),
               )
             ],
           ),

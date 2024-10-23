@@ -39,7 +39,7 @@ class PageViewItem extends StatelessWidget {
         ),
         Text(
           details,
-          style: MyText.appStyle.small.wMedium.reColorText.style,
+          style: MyText.appStyle.small.wMedium.reColorLightText.style,
           textAlign: TextAlign.center,
         ),
         SizedBox(

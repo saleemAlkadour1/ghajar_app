@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:ghajar_app/app/app_spacing.dart';
 import 'package:ghajar_app/app/app_text_styles.dart';
 import 'package:ghajar_app/app/my_strings.dart';
 import 'package:ghajar_app/providers/variables_provider.dart';
@@ -13,17 +12,15 @@ import 'package:ghajar_app/ui/widgets/home_screen_widgets/custom_bottom_navigati
 import 'package:ghajar_app/ui/widgets/home_screen_widgets/custom_text_field.dart';
 import 'package:ghajar_app/ui/widgets/home_screen_widgets/offer_slide.dart';
 import 'package:ghajar_app/ui/widgets/home_screen_widgets/products_list_view.dart';
+import 'package:ghajar_app/utils/calculate_dimensions.dart';
 import 'package:ghajar_app/utils/enums/app_page_route_enum.dart';
 import 'package:ghajar_app/utils/navigation.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomeScreen extends ConsumerWidget implements AppPageRoute {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final double heightScreen = MediaQuery.sizeOf(context).height;
-    final double widthScreen = MediaQuery.sizeOf(context).width;
     final PageController pageController = PageController();
     const List<Widget> screens = [
       FavouriteScreen(),
@@ -36,27 +33,21 @@ class HomeScreen extends ConsumerWidget implements AppPageRoute {
         body: ref.watch(selectedIndexProvider) == 3
             ? SafeArea(
                 child: Padding(
-                  padding: REdgeInsets.symmetric(horizontal: 23),
+                  padding: EdgeInsets.symmetric(horizontal: width(23)),
                   child: Column(
                     children: [
-                      AppSpacing.customHeight(heightScreen * 0.01),
+                      const Spacer(),
                       const CustomAppBarInHomeView(),
-                      AppSpacing.customHeight(heightScreen * 0.02),
+                      const Spacer(),
                       SizedBox(
-                        height: heightScreen * 0.07,
+                        height: height(53),
                         child: const CustomTextField(),
                       ),
-                      AppSpacing.customHeight(heightScreen * 0.02),
-                      CategoriesListView(
-                        heightScreen: heightScreen,
-                        widthScreen: widthScreen,
-                      ),
-                      //AppSpacing.value(18).inColumn,
+                      const Spacer(),
+                      const CategoriesListView(),
                       const Spacer(),
                       OfferSlide(
                         pageController: pageController,
-                        heightScreen: heightScreen,
-                        widthScreen: widthScreen,
                       ),
                       const Spacer(),
                       Row(
@@ -73,14 +64,13 @@ class HomeScreen extends ConsumerWidget implements AppPageRoute {
                           )
                         ],
                       ),
-                      //AppSpacing.value(12).inColumn,
-                      AppSpacing.customHeight(heightScreen * 0.03),
-                      ProductsListView(
-                        heightScreen: heightScreen,
-                        widthScreen: widthScreen,
+                      SizedBox(
+                        height: height(12),
                       ),
-                      //AppSpacing.value(24).inColumn,
-                      AppSpacing.customHeight(heightScreen * 0.03),
+                      const ProductsListView(),
+                      SizedBox(
+                        height: height(24),
+                      ),
                     ],
                   ),
                 ),
