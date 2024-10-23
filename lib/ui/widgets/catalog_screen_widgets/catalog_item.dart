@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ghajar_app/app/app_colors.dart';
 import 'package:ghajar_app/app/app_radius.dart';
-import 'package:ghajar_app/app/app_spacing.dart';
 import 'package:ghajar_app/app/app_text_styles.dart';
+import 'package:ghajar_app/utils/calculate_dimensions.dart';
 
 class CatalogItem extends StatelessWidget {
   const CatalogItem({
@@ -24,13 +23,13 @@ class CatalogItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(
-        bottom: AppSpacing.value(11).h,
+        bottom: height(11),
       ),
-      padding: EdgeInsets.symmetric(
-        vertical: AppSpacing.value(12).h,
-        horizontal: AppSpacing.value(12).w,
+      padding: EdgeInsets.all(
+        emp(12),
       ),
-      height: heightScreen * 0.15,
+      width: widthScreen,
+      height: height(100),
       decoration: BoxDecoration(
         color: AppColors.white,
         borderRadius: BorderRadius.circular(AppRadius.regular.v),
@@ -45,15 +44,19 @@ class CatalogItem extends StatelessWidget {
             children: [
               CircleAvatar(
                 backgroundColor: AppColors.bg,
-                radius: 20.r,
+                radius: emp(20),
                 child: CircleAvatar(
                   backgroundColor: AppColors.white,
-                  radius: 15.r,
+                  radius: emp(15),
                   child: Align(
                     alignment: Alignment.bottomCenter,
                     child: Text(
                       sort.toString(),
-                      style: MyText.appStyle.xl.wBold.reColorPrimary.style,
+                      style: MyText.appStyle
+                          .customSize(adjustTextSize(sort.toString(), 24, 1))
+                          .wBold
+                          .reColorPrimary
+                          .style,
                       softWrap: true,
                     ),
                   ),
@@ -65,15 +68,21 @@ class CatalogItem extends StatelessWidget {
               )
             ],
           ),
-          AppSpacing.value(16).inRow,
+          SizedBox(
+            width: width(24),
+          ),
           Container(
-            width: AppSpacing.value(119).w,
-            height: AppSpacing.value(76).h,
+            width: width(119),
+            height: height(76),
             decoration: BoxDecoration(
               color: AppColors.bg,
               borderRadius: BorderRadius.circular(AppRadius.xs.v),
             ),
-            child: Image.asset(pathImage),
+            child: Image.asset(
+              pathImage,
+              width: width(104),
+              height: height(61),
+            ),
           )
         ],
       ),

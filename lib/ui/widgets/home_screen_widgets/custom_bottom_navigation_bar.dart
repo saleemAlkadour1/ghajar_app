@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ghajar_app/app/app_colors.dart';
 import 'package:ghajar_app/app/my_strings.dart';
-import 'package:ghajar_app/assets.dart';
+import 'package:ghajar_app/app/assets.dart';
 import 'package:ghajar_app/providers/variables_provider.dart';
 import 'package:ghajar_app/ui/bottom_navigation_bar_item.dart';
 

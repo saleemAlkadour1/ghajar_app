@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ghajar_app/app/my_strings.dart';
-import 'package:ghajar_app/assets.dart';
+import 'package:ghajar_app/app/assets.dart';
 import 'package:ghajar_app/models/cart_item_model.dart';
 
 final listCartItemProvider = StateProvider<List<CartItemModel>>((ref) => [

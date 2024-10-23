@@ -7,7 +7,7 @@ import 'package:ghajar_app/app/app_colors.dart';
 import 'package:ghajar_app/app/app_radius.dart';
 import 'package:ghajar_app/app/app_spacing.dart';
 import 'package:ghajar_app/app/app_text_styles.dart';
-import 'package:ghajar_app/assets.dart';
+import 'package:ghajar_app/app/assets.dart';
 import 'package:ghajar_app/ui/widgets/custom_app_bar.dart';
 import 'package:ghajar_app/ui/widgets/home_screen_widgets/product_item.dart';
 import 'package:ghajar_app/ui/widgets/price_card.dart';

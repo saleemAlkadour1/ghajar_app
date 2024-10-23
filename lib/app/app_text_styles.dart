@@ -165,18 +165,6 @@ class MyText {
   MyText get reColorDescription =>
       MyText._(_style.copyWith(color: AppColors.description));
 
-  //General defenations
-  MyText get reColorPrimaryLight =>
-      MyText._(_style.copyWith(color: AppColors.primaryLight));
-
-  MyText get reColorWarning =>
-      MyText._(_style.copyWith(color: AppColors.warning));
-
-  MyText get reColorRed => MyText._(_style.copyWith(color: AppColors.red));
-
-  MyText get reColorBorder =>
-      MyText._(_style.copyWith(color: AppColors.border));
-
   MyText reColorIf(bool condition, Color color) =>
       MyText._(_style.copyWith(color: condition ? color : null));
 

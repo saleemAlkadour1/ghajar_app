@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ghajar_app/app/app_colors.dart';
 import 'package:ghajar_app/app/app_radius.dart';
-import 'package:ghajar_app/app/app_spacing.dart';
 import 'package:ghajar_app/app/app_text_styles.dart';
 import 'package:ghajar_app/providers/variables_provider.dart';
 import 'package:ghajar_app/ui/widgets/custom_icon.dart';
+import 'package:ghajar_app/utils/calculate_dimensions.dart';
 
 class SetQuantity extends ConsumerStatefulWidget {
   const SetQuantity({
@@ -28,8 +27,8 @@ class _SetQuantityState extends ConsumerState<SetQuantity> {
     return Row(
       children: [
         Container(
-          width: AppSpacing.value(26).w,
-          height: AppSpacing.value(21.48).h,
+          width: width(26),
+          height: height(21.48),
           decoration: BoxDecoration(
               color: AppColors.bg,
               borderRadius: BorderRadius.circular(AppRadius.sm.v)),
@@ -46,21 +45,21 @@ class _SetQuantityState extends ConsumerState<SetQuantity> {
               icon: Icon(
                 Icons.add,
                 color: AppColors.primary,
-                size: 15.sp,
+                size: emp(15),
               ),
             ),
           ),
         ),
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: AppSpacing.value(7).w),
+          padding: EdgeInsets.symmetric(horizontal: width(10.76)),
           child: Text(
             quantity.toString(),
             style: MyText.appStyle.small.wRegular.reColorText.style,
           ),
         ),
         Container(
-          width: AppSpacing.value(26).w,
-          height: AppSpacing.value(21.48).h,
+          width: width(26),
+          height: height(21.48),
           decoration: BoxDecoration(
               color: AppColors.bg,
               borderRadius: BorderRadius.circular(AppRadius.sm.v)),
@@ -77,7 +76,7 @@ class _SetQuantityState extends ConsumerState<SetQuantity> {
               icon: Icon(
                 Icons.remove,
                 color: AppColors.primary,
-                size: 15.sp,
+                size: emp(15),
               ),
             ),
           ),

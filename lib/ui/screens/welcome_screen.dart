@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ghajar_app/app/my_strings.dart';
-import 'package:ghajar_app/assets.dart';
+import 'package:ghajar_app/app/assets.dart';
 import 'package:ghajar_app/ui/screens/home_screen.dart';
 import 'package:ghajar_app/ui/widgets/custom_button.dart';
 import 'package:ghajar_app/ui/widgets/welcome_screen_widgets/custom_page_view.dart';

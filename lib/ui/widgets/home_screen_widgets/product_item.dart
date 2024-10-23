@@ -5,7 +5,7 @@ import 'package:ghajar_app/app/app_colors.dart';
 import 'package:ghajar_app/app/app_radius.dart';
 import 'package:ghajar_app/app/app_text_styles.dart';
 import 'package:ghajar_app/app/my_strings.dart';
-import 'package:ghajar_app/assets.dart';
+import 'package:ghajar_app/app/assets.dart';
 import 'package:ghajar_app/ui/screens/details_screen.dart';
 import 'package:ghajar_app/utils/calculate_dimensions.dart';
 import 'package:ghajar_app/utils/navigation.dart';

@@ -17,16 +17,6 @@ abstract class AppColors {
   static const Color priceDetails = Color(0xFF979C9E);
   static const Color description = Color(0xFF797676);
 
-//General definitions
-  static const Color primaryLight = Color(0xFF2D9CDB);
-  static const Color primaryXLight = Color(0xFFA0ABFF);
-  static const Color primaryXxLight = Color(0xFFDFE3FF);
-  static const Color primaryXxxLight = Color(0xFFF2F4FF);
-  static const Color warning = Color(0XFFFFC000);
-  static const Color red = Color(0xFFFF5A5A);
-  static const Color border = Color(0xFF090F47);
-  static const Color grey = Colors.grey;
-
   static Color getShade(Color color, {bool darker = false, double value = .1}) {
     assert(value >= 0 && value <= 1);
 

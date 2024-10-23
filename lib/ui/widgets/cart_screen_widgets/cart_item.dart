@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ghajar_app/app/app_colors.dart';
 import 'package:ghajar_app/app/app_radius.dart';
-import 'package:ghajar_app/app/app_spacing.dart';
 import 'package:ghajar_app/app/app_text_styles.dart';
 import 'package:ghajar_app/models/cart_item_model.dart';
 import 'package:ghajar_app/ui/widgets/cart_screen_widgets/set_quantity.dart';
+import 'package:ghajar_app/utils/calculate_dimensions.dart';
 
 class CartItem extends ConsumerWidget {
   const CartItem(
@@ -21,14 +21,18 @@ class CartItem extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Container(
       padding: EdgeInsets.symmetric(
-        vertical: AppSpacing.value(10).h,
-        horizontal: AppSpacing.value(9).w,
+        vertical: height(10),
+        horizontal: width(9),
       ),
-      margin: EdgeInsets.only(bottom: AppSpacing.value(10).h),
+      margin: EdgeInsets.only(
+        bottom: height(10),
+      ),
       decoration: BoxDecoration(
-          color: AppColors.white,
-          borderRadius: BorderRadius.circular(AppRadius.xm.v)),
-      height: AppSpacing.value(92).h,
+        color: AppColors.white,
+        borderRadius: BorderRadius.circular(AppRadius.xm.v),
+      ),
+      width: widthScreen,
+      height: height(92),
       child: Row(
         children: [
           Align(
@@ -40,9 +44,12 @@ class CartItem extends ConsumerWidget {
               },
             ),
           ),
-          AppSpacing.value(21).inRow,
+          SizedBox(
+            width: width(8.49),
+          ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
                 cartItemModel.name,
@@ -50,14 +57,18 @@ class CartItem extends ConsumerWidget {
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
               ),
-              const Spacer(),
+              SizedBox(
+                height: height(14),
+              ),
               Text(
                 cartItemModel.price.toString() + r' $',
                 style: MyText.appStyle.l.wRegular.reColorXXLightText.style,
               ),
             ],
           ),
-          AppSpacing.value(10).inRow,
+          SizedBox(
+            width: width(10),
+          ),
           ClipRRect(
             borderRadius: BorderRadius.circular(AppRadius.regular.v),
             child: AspectRatio(

@@ -26,7 +26,7 @@ class CustomButton extends StatelessWidget {
         child: Center(
             child: Text(
           text,
-          style: MyText.appStyle.small.wBold.reColorWhite.style,
+          style: MyText.appStyle.small.wMedium.reColorWhite.style,
         )),
       ),
     );

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ghajar_app/assets.dart';
+import 'package:ghajar_app/app/assets.dart';
 import 'package:ghajar_app/utils/calculate_dimensions.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 

@@ -13,15 +13,12 @@ class CustomListViewInCartScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final List<CartItemModel> listCartItemModel =
         ref.watch(listCartItemProvider);
-
     return ListView.builder(
       itemBuilder: (context, index) {
         return CartItem(
           index: index,
           cartItemModel: listCartItemModel[index],
           newQuantity: (value) {
-            // ref.read(listCartItemProvider.notifier).state[index].quantity =
-            //     value;
             ref.read(listCartItemProvider.notifier).update((state) {
               final updateList = List<CartItemModel>.from(state);
               updateList[index].quantity = value;
